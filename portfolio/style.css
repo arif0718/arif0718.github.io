@@ -42,3 +42,24 @@ body {
   background-color: #555;
   border-radius: 4px;
 }
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.box {
+  width: 45%;
+  padding: 20px;
+  border: 2px solid black;
+  min-height: 150px;
+}
+
+.with-text {
+  background-color: #f9f9f9;
+}
+
+.empty-box {
+  background-color: #fff;
+}
