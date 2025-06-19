@@ -1,56 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Multimedia</h1>
-    <h3>Audio Files</h3>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Images and Videos</title>
+  <style>
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+
+    video {
+      max-width: 100%;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .media-caption {
+      color: #666;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Images and Videos Demo</h1>
+
+    <!-- Audio Part -->
     <audio controls>
       <source src="boot.mp3" />
     </audio>
-    <audio controls>
-      <source src="boot.mp3" />
-    </audio>
-    <audio controls>
-      <source src="boot.mp3" />
-    </audio>
-    <audio controls>
-      <source src="boot.mp3" />
-    </audio>
-    <h3>Video Files</h3>
-    <video height="200px" width="300px" controls>
-      <source src="st1.mp4" />
-      <track
-        src="subtitles1.vtt"
-        kind="subtitles"
-        srclang="en"
-        label="English"
-      />
-      <track src="subtitles2.vtt" kind="subtitles" srclang="in" label="Hindi" />
+
+    <!-- Image Section -->
+    <h2>Pinterest Image Example</h2>
+    <img src="https://i.pinimg.com/736x/8f/46/37/8f4637b484136282d45c97d12d9398d7.jpg" alt="Beautiful Nature Landscape"
+      title="Click to see full size" width="50%">
+    <figcaption>Spider man </figcaption>
+
+    <!-- Video Section -->
+    <h2>Pinterest Video Example</h2>
+    <video controls width="50%" poster="https://i.pinimg.com/originals/e6/f4/a4/e6f4a4b2ebe7ea95a73f61c0d0c8f451.jpg">
+      <source src="https://v1.pinimg.com/videos/mc/720p/f6/88/88/f68888290d70aca3cbd4ad9cd3aa732f.mp4" type="video/mp4">
+      Your browser does not support the video tag.
     </video>
-    <video height="200px" width="300px" controls>
-      <source src="st1.mp4" />
-    </video>
-    <video height="200px" width="300px" >
-      <source src="st1.mp4" />
-    </video>
-    <hr />
-    <svg width="900" height="900">
-      <circle
-        cx="250"
-        cy="400"
-        r="100"
-        stroke="red"
-        stroke-width="5"
-        fill="pink"
-      />
-      <ellipse cx="100" cy="70" rx="85" ry="55" fill="red" />
-      <text fill="black" font-size="45" font-family="Verdana" x="50" y="86">
-        ZEE Cinema
-      </text>
-    </svg>
-  </body>
+    <p class="media-caption">A sample video from Pinterest</p>
+
+    <!-- Additional Information -->
+    <div class="info">
+      <h3>Image Tag Attributes:</h3>
+      <ul>
+        <li><code>src</code> - Source URL of the image</li>
+        <li><code>alt</code> - Alternative text for accessibility</li>
+        <li><code>title</code> - Tooltip text on hover</li>
+      </ul>
+
+      <h3>Video Tag Attributes:</h3>
+      <ul>
+        <li><code>controls</code> - Shows video controls</li>
+        <li><code>width</code> - Sets video width</li>
+        <li><code>poster</code> - Thumbnail image before video plays</li>
+      </ul>
+    </div>
+  </div>
+</body>
+
 </html>
