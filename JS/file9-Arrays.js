@@ -19,5 +19,12 @@ const products = [
 function addToCart(id){
     cart = {...cart, [id]: 1}; //adding an item to the cart
 }
+function increaseQuantity(id){
+    const quantity = cart[id] || 0; //checking if the item is already in the cart, if not, default to 0
+    cart = {...cart, [id]: quantity+1};
+}
 addToCart(1);
+increaseQuantity(1);
 console.log(cart);
+
+
