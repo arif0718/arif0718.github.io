@@ -1,5 +1,9 @@
 db.employees.find()
 
+db.employees.find({},{})        //first curly bracket is for filter //2nd bracket for projection
+
+db.employees.find({salary:{$gt:3000}},{name:1})     //display id and name
+
 db.employees.find().skip(1)    //skiping first data
 
 db.employees.find().limit(1)    //only give 1st data

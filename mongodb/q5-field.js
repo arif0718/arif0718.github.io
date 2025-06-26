@@ -8,6 +8,7 @@ db.employees.updateMany(
     { $unset: { point: ""}}    //deleting particular field
 )
 
+//usesd array
 db.employees.updateMany(
     {},
     {$push:{points:3}}        //pushing value to the array:points
