@@ -117,6 +117,8 @@ db.employees.find().explain("executionStats");
 
 
 //by me
+//created student collection
+//and group it
 
 db.student.insertMany([
   {
@@ -157,3 +159,6 @@ db.student.aggregate([
     total:{$sum:"$score"}
   }}
 ])
+
+
+db.student.drop()   //deleting colection
