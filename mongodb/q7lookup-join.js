@@ -123,18 +123,22 @@ db.marks.aggregate([
     {$sort:{_id:1}}
 ])
 
+//rename name field in marks as sid
 db.marks.updateMany(
     {},
     { $rename: { name: "sid"}}
 )
 
+//create studentinfo collection
 db.studentinfo.insertMany([
   {_id:"s1", name:"John"},
   {_id:"s2",name:"Cathy"}
 ])
 
+//update field's name by set operator
 db.marks.updateMany({sid:"John"}, {$set: {sid: "s1"}})
 db.marks.updateMany({sid:"Cathy"}, {$set: {sid: "s2"}})
+
 
 db.studentinfo.aggregate([
   {$lookup:{
@@ -144,5 +148,6 @@ db.studentinfo.aggregate([
     as:"marks"
   }},
   {$unwind:"$marks"},
-  {$group: {_id:"$term"}}
+  {$group: {_id:"$marks.term", AvgScore:{$avg:"$marks.score"}}},
+  {$sort:{_id:1}}
 ])
