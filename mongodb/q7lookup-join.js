@@ -151,3 +151,54 @@ db.studentinfo.aggregate([
   {$group: {_id:"$marks.term", AvgScore:{$avg:"$marks.score"}}},
   {$sort:{_id:1}}
 ])
+
+
+//display grade A
+db.employees.aggregate([
+  {$project:{
+    _id:0,
+    name:1,
+    salary:1,
+    Grade:"Grade A"
+  }}
+])
+
+//use condition operator
+db.employees.aggregate([
+  {$project:{
+    _id:0,
+    name:1,
+    salary:1,
+    Grade:{$cond:[{$gt:["$salary",3000]},"Grade A", "Grade B"]}  //ternary operator
+  }}
+])
+
+//if else cond and creating new GradeWiseSalary collections
+db.employees.aggregate([
+  {$project:{
+    _id:0,
+    name:1,
+    salary:1,
+    Grade:{$cond:{
+      if:{$gt:["$salary",3000]},
+      then:"Grade A",
+      else:"Grade B"
+    }}
+  }},
+  {$out:"GradeWiseSalary"}
+])
+
+db.createView("salaryview", "employees", [
+  {$project:{
+    _id:0,
+    name:1,
+    salary:1,
+    Grade:{
+      $cond:{
+      if:{$gt:["$salary",3000]},
+      then:"Grade A",
+      else:"Grade B"
+    }}
+  }},
+])
+db.salaryview.find()
